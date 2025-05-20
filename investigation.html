@@ -199,7 +199,7 @@
     document.getElementById("progress-indicator").textContent = `foolishness : ${currentQuestion + 1} / ${questions.length}`;
   } else {
     // 질문 완료 시 서버로 전송
-    fetch("http://34.19.70.125/predict", {
+    fetch("https://whenwillyoudie.org/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ answers })
