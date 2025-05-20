@@ -163,60 +163,60 @@
 
     const answers = [];
     let currentQuestion = 0;
-
     function handleSubmit(event) {
-      event.preventDefault();
+  event.preventDefault();
 
-      const input = document.getElementById("answer-input");
-      const answer = input.value.trim();
-      const warning = document.getElementById("warning-message");
+  const input = document.getElementById("answer-input");
+  const answer = input.value.trim();
+  const warning = document.getElementById("warning-message");
 
-      if (answer === "") {
-        const messages = [
-          "침묵이 언제나 답이 되진 않습니다.",
-          "도망친 곳에 낙원은 존재할 수 없습니다.",
-          "책임회피라.. 비열한 짓이죠.",
-          "도망이라니.. 한심하군요."
-        ];
-        const random = messages[Math.floor(Math.random() * messages.length)];
-        warning.textContent = random;
-        warning.style.opacity = 1;
+  if (answer === "") {
+    const messages = [
+      "침묵이 언제나 답이 되진 않습니다.",
+      "도망친 곳에 낙원은 존재할 수 없습니다.",
+      "책임회피라.. 비열한 짓이죠.",
+      "도망이라니.. 한심하군요."
+    ];
+    const random = messages[Math.floor(Math.random() * messages.length)];
+    warning.textContent = random;
+    warning.style.opacity = 1;
 
-        setTimeout(() => {
-          warning.style.opacity = 0;
-        }, 3000);
-        return;
-      }
-
-      warning.textContent = "";
+    setTimeout(() => {
       warning.style.opacity = 0;
+    }, 3000);
+    return;
+  }
 
-      answers.push(answer);
-      input.value = "";
-      currentQuestion++;
+  warning.textContent = "";
+  warning.style.opacity = 0;
 
-      if (currentQuestion < questions.length) {
-        document.getElementById("question-title").textContent = questions[currentQuestion];
-        document.getElementById("progress-indicator").textContent = `foolishness : ${currentQuestion + 1} / ${questions.length}`;
-      } else {
-        document.getElementById("qa-form").innerHTML = `<p style="color: white; font-size: 2rem;">당신의 응답이 기록되었습니다.</p>`;
+  answers.push(answer);
+  input.value = "";
+  currentQuestion++;
 
-        // 서버로 전송
-        fetch("http://localhost:3000/predict", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ answers })
-        })
-          .then(res => res.json())
-          .then(data => {
-            sessionStorage.setItem("deathResult", JSON.stringify(data));
-            window.location.href = "result.html";
-          })
-          .catch(err => {
-            console.error("서버 오류:", err);
-          });
-      }
-    }
+  if (currentQuestion < questions.length) {
+    document.getElementById("question-title").textContent = questions[currentQuestion];
+    document.getElementById("progress-indicator").textContent = `foolishness : ${currentQuestion + 1} / ${questions.length}`;
+  } else {
+    // 질문 완료 시 서버로 전송
+    fetch("http://localhost:3000/predict", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ answers })
+    })
+      .then(res => res.json())
+      .then(data => {
+        // 결과를 세션에 저장 후 result.html로 이동
+        sessionStorage.setItem("deathResult", JSON.stringify(data));
+        window.location.href = "result.html";
+      })
+      .catch(err => {
+        console.error("서버 오류:", err);
+        alert("결과 분석 중 문제가 발생했습니다.");
+      });
+  }
+}
+
   </script>
 </body>
 </html
