@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Warning</title>
+  <title>investigation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Noto+Sans+KR:wght@300;500;700;900&display=swap" rel="stylesheet" />
@@ -126,100 +126,97 @@
   <div id="warning-message" class="warning-message"></div>
   <div id="progress-indicator" class="progress-indicator">foolishness : 1 / 30</div>
 
+
   <script>
     const questions = [
-    "당신이 속한 생물학적 성별을 명시하십시오.",
-    "당신의 연식을 입력하십시오.",
-    "당신이 주로 체류하는 지리적 구역은 어디입니까?",
-    "당신의 신장을 센티미터 단위로 보고하십시오.",
-    "당신의 현재 질량은 어느 정도입니까?",
-
-    "폐를 서서히 마모시키는 연기를 즐기십니까?",
-    "하루 기준 평균 몇 개비를 태우고 있습니까?",
-    "흡연을 시작한 시점은 언제입니까?",
-    "알코올 중독의 가능성을 인지하고 있습니까?",
-    "주간 기준 섭취하는 알코올의 양을 명시하십시오.",
-
-    "매일 수면에 소비하는 시간은 몇 시간입니까?",
-    "보통 몇 시경에 잠에 듭니까?",
-    "당신은 규칙적인 신체 가동을 실행 중입니까?",
-    "자주 수행하는 신체 활동의 유형을 기술하십시오.",
-
-    "최근 의식의 불안정성을 감지한 적 있습니까?",
-    "자주 무기력함 또는 불안을 체감하십니까?",
-    "생의 종료를 직접 유도하고자 한 충동을 느낀 적이 있습니까?",
-
-    "유전적으로 치명적 질환을 계승받았습니까?",
-    "현재 진행 중인 치명적 신체적 고장이 존재합니까?",
-    "지난 5년 이내 구조 수리나 중단 상태를 경험하셨습니까?",
-
-    "이동 수단을 스스로 통제하는 빈도는 어느 정도입니까?",
-    "법적 제한을 따르는 편이십니까, 혹은 무시하십니까?",
-    "고위험 행위를 반복하는 습관이 있습니까?",
-    "주간 평균 야간 작업 수행 빈도는 얼마입니까?",
-
-    "생명 유지에 필수적인 자연 식재료를 얼마나 섭취합니까?",
-    "식사의 대부분은 어떤 형태를 띠고 있습니까?",
-    "물은 하루 기준 얼마나 섭취하고 있습니까?",
-
-    "신체 진단을 주기적으로 받고 있습니까?",
-    "생물학적 방어 시스템의 최신 상태는 유지되고 있습니까?",
-    "당신은 스스로를 ‘정상 작동 중’이라 판단하고 있습니까?"
+      "당신이 속한 생물학적 성별을 명시하십시오.",
+      "당신의 연식을 입력하십시오.",
+      "당신이 주로 체류하는 지리적 구역은 어디입니까?",
+      "당신의 신장을 센티미터 단위로 보고하십시오.",
+      "당신의 현재 질량은 어느 정도입니까?",
+      "폐를 서서히 마모시키는 연기를 즐기십니까?",
+      "하루 기준 평균 몇 개비를 태우고 있습니까?",
+      "흡연을 시작한 시점은 언제입니까?",
+      "알코올 중독의 가능성을 인지하고 있습니까?",
+      "주간 기준 섭취하는 알코올의 양을 명시하십시오.",
+      "매일 수면에 소비하는 시간은 몇 시간입니까?",
+      "보통 몇 시경에 잠에 듭니까?",
+      "당신은 규칙적인 신체 가동을 실행 중입니까?",
+      "자주 수행하는 신체 활동의 유형을 기술하십시오.",
+      "최근 의식의 불안정성을 감지한 적 있습니까?",
+      "자주 무기력함 또는 불안을 체감하십니까?",
+      "생의 종료를 직접 유도하고자 한 충동을 느낀 적이 있습니까?",
+      "유전적으로 치명적 질환을 계승받았습니까?",
+      "현재 진행 중인 치명적 신체적 고장이 존재합니까?",
+      "지난 5년 이내 구조 수리나 중단 상태를 경험하셨습니까?",
+      "이동 수단을 스스로 통제하는 빈도는 어느 정도입니까?",
+      "법적 제한을 따르는 편이십니까, 혹은 무시하십니까?",
+      "고위험 행위를 반복하는 습관이 있습니까?",
+      "주간 평균 야간 작업 수행 빈도는 얼마입니까?",
+      "생명 유지에 필수적인 자연 식재료를 얼마나 섭취합니까?",
+      "식사의 대부분은 어떤 형태를 띠고 있습니까?",
+      "물은 하루 기준 얼마나 섭취하고 있습니까?",
+      "신체 진단을 주기적으로 받고 있습니까?",
+      "생물학적 방어 시스템의 최신 상태는 유지되고 있습니까?",
+      "당신은 스스로를 ‘정상 작동 중’이라 판단하고 있습니까?"
     ];
-
 
     const answers = [];
     let currentQuestion = 0;
 
-    function handleSubmit() {
-  const input = document.getElementById("answer-input");
-  const answer = input.value.trim();
-  const warning = document.getElementById("warning-message");
+    function handleSubmit(event) {
+      event.preventDefault();
 
-  if (answer === "") {
-    const messages = [
-      "침묵이 언제나 답이 되진 않습니다.",
-      "도망친 곳에 낙원은 존재할 수 없습니다.",
-      "책임회피라.. 비열한 짓이죠.",
-      "도망이라니.. 한심하군요."
-    ];
-    const random = messages[Math.floor(Math.random() * messages.length)];
+      const input = document.getElementById("answer-input");
+      const answer = input.value.trim();
+      const warning = document.getElementById("warning-message");
 
-    warning.textContent = random;
-    warning.style.opacity = 1;
+      if (answer === "") {
+        const messages = [
+          "침묵이 언제나 답이 되진 않습니다.",
+          "도망친 곳에 낙원은 존재할 수 없습니다.",
+          "책임회피라.. 비열한 짓이죠.",
+          "도망이라니.. 한심하군요."
+        ];
+        const random = messages[Math.floor(Math.random() * messages.length)];
+        warning.textContent = random;
+        warning.style.opacity = 1;
 
-    // 3초 후 사라지게
-    setTimeout(() => {
+        setTimeout(() => {
+          warning.style.opacity = 0;
+        }, 3000);
+        return;
+      }
+
+      warning.textContent = "";
       warning.style.opacity = 0;
-    }, 3000);
 
-    return;
-  }
+      answers.push(answer);
+      input.value = "";
+      currentQuestion++;
 
-  // 답변이 있을 경우 기존 경고 숨김
-  warning.textContent = "";
-  warning.style.opacity = 0;
+      if (currentQuestion < questions.length) {
+        document.getElementById("question-title").textContent = questions[currentQuestion];
+        document.getElementById("progress-indicator").textContent = `foolishness : ${currentQuestion + 1} / ${questions.length}`;
+      } else {
+        document.getElementById("qa-form").innerHTML = `<p style="color: white; font-size: 2rem;">당신의 응답이 기록되었습니다.</p>`;
 
-  answers.push(answer);
-  input.value = "";
-  currentQuestion++;
-
-  if (currentQuestion < questions.length) {
-    document.getElementById("question-title").textContent = questions[currentQuestion];
-  } else {
-    document.getElementById("qa-form").innerHTML = `<p style="color: white; font-size: 2rem;">당신의 응답이 기록되었습니다.</p>`;
-    console.log("답변 목록:", answers);
-  }
-  // 질문 업데이트
-document.getElementById("question-title").textContent = questions[currentQuestion];
-
-// 진행도 업데이트
-document.getElementById("progress-indicator").textContent = `foolishness : ${currentQuestion + 1} / ${questions.length}`;
-
-}
-
-
-
+        // 서버로 전송
+        fetch("http://localhost:3000/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ answers })
+        })
+          .then(res => res.json())
+          .then(data => {
+            sessionStorage.setItem("deathResult", JSON.stringify(data));
+            window.location.href = "result.html";
+          })
+          .catch(err => {
+            console.error("서버 오류:", err);
+          });
+      }
+    }
   </script>
 </body>
 </html

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>result</title>
+  <style>
+    body {
+        background: linear-gradient(#343434, #000000);
+      color: white;
+      font-family: "East Sea Dokdo", sans-serif;
+      text-align: center;
+
+      height:100vh;
+    }
+    h1 {
+        padding-top: 20vh;
+      font-size: 4rem;
+      color: #8a0303;
+    }
+    h2{
+        padding-top: 20vh;
+      font-size: 3rem;
+      color: #8a0303;
+    }
+    ul {
+      list-style: none;
+      color: #8a0303;
+      padding: 0;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<h1 id="result">결과를 불러오는 중...</h1>
+<h2>어리석은 행동</h2>
+<ul id="risks"></ul>
+<h2>발버둥</h2>
+<ul id="advice"></ul>
+
+<script>
+  const result = JSON.parse(sessionStorage.getItem("deathResult"));
+  document.getElementById("result").innerHTML = `당신의 사망 예정 연도는 <br><span style="font-size:6rem;">${result.predicted_death_year}년</span>입니다.`;
+
+  result.risk_factors.forEach(r => {
+    const li = document.createElement("li");
+    li.textContent = r;
+    document.getElementById("risks").appendChild(li);
+  });
+
+  result.suggestions.forEach(s => {
+    const li = document.createElement("li");
+    li.textContent = s;
+    document.getElementById("advice").appendChild(li);
+  });
+</script>
+</body>
+</html>
