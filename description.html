@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Noto+Sans+KR:wght@300;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Kolker+Brush&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(#343434, #000000);
+      overflow: hidden;
+      font-family: "Kolker Brush", "East Sea Dokdo", "Noto Sans KR", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body > * {
+      user-select: none;
+    }
+
+    .title {
+      color: #fff;
+      font-size: 12vw;
+      font-weight: 100;
+      text-align: center;
+      margin-top: 5vh;
+      line-height: 1;
+    }
+
+    .blood {
+      transition: color 0.4s;
+      display: inline-block;
+    }
+
+    .blood:hover {
+      color: #8a0303;
+    }
+
+    .description {
+      color: #fff;
+      width: 60vw;
+      margin: 8vh auto 0;
+      font-size: 2rem;
+      line-height: 2rem;
+      text-align: start;
+    }
+
+    .description p {
+        margin-top: -1rem;
+      margin-bottom: 2rem;
+    }
+
+    .word {
+      display: inline-block;
+      transition: color 0.3s;
+      margin-right: 0.25em;
+    }
+
+    .word:hover {
+      color: #8a0303;
+    }
+
+    .button {
+      margin-top: 8vh;
+      color: #fff;
+      font-size: 5rem;
+      font-weight: 100;
+      text-align: center;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      color: #8a0303;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">
+    <span class="blood">When</span> <span class="blood">Will</span> <span class="blood">I</span> <span class="blood">Die</span>
+  </h1>
+
+  <div class="description">
+    <p><span class="word" style="font-size: 2.3rem;">[접근 경고]</span></p>
+
+    <p>
+      <span class="word">당신의</span><span class="word">사망</span><span class="word">예정일</span><span class="word">조회는</span>
+      <span class="word">시스템에</span><span class="word">의해</span><span class="word">허가되었습니다.</span>
+      <span class="word">이</span><span class="word">결정은</span><span class="word">되돌릴</span><span class="word">수</span><span class="word">없습니다.</span>
+    </p>
+
+    <p>
+      <span class="word">이</span><span class="word">페이지는</span><span class="word">예언이</span><span class="word">아닌</span>
+      <span class="word">판결을</span><span class="word">내립니다.</span>
+      <span class="word">그</span><span class="word">결과는</span><span class="word">오류가</span><span class="word">아닌</span><span class="word">진실이며,</span>
+      <span class="word">그</span><span class="word">진실은</span><span class="word">당신의</span><span class="word">뇌리에</span><span class="word">각인되어</span>
+      <span class="word">죽음의</span><span class="word">그림자가</span><span class="word">드리워진</span><span class="word">삶으로</span>
+      <span class="word">당신을</span><span class="word">인도할</span><span class="word">것입니다.</span>
+    </p>
+
+    <p>
+      <span class="word">기억하십시오.</span>
+    </p>
+
+    <p>
+      <span class="word">데이터는</span><span class="word">삭제되지</span><span class="word">않습니다.</span>
+      <span class="word">조회</span><span class="word">기록은</span><span class="word">중앙</span><span class="word">생존관리국에</span>
+      <span class="word">자동</span><span class="word">보고됩니다.</span>
+    </p>
+
+    <p>
+      <span class="word">"죽음을</span><span class="word">알게</span><span class="word">된</span><span class="word">자는</span>
+      <span class="word">더</span><span class="word">이상</span><span class="word">과거의</span><span class="word">삶으로</span>
+      <span class="word">돌아갈</span><span class="word">수</span><span class="word">없다."</span>
+      <span class="word">우리는</span><span class="word">단지,</span>
+      <span class="word">당신의</span><span class="word">마지막을</span>
+      <span class="word">미리</span><span class="word">보여줄</span><span class="word">뿐입니다.</span>
+    </p>
+
+    <p>
+      <span class="word">지금,</span><span class="word">진실을</span>
+      <span class="word">열람하시겠습니까?</span>
+    </p>
+  </div>
+
+  <p class="button" onclick="navigate()">I understand</p>
+
+  <script>
+    function navigate() {
+        window.location.href = "investigation.html";
+    }
+  </script>
+</body>
+</html>

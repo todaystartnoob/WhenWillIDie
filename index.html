@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhenWillIDie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+     body{
+        width:100vw;
+        height:100vh;
+        background: linear-gradient(#343434, #000000);
+        overflow: hidden;
+        font-family: "Kolker Brush", "Noto Sans KR";
+     }   
+     body > *{
+        user-select: none;
+     }
+     .title{
+        color:#fff;
+        font-size: 15vw;
+        font-weight: 100;
+        text-align: center;
+     }
+     .button{
+        margin-top: 30vh;
+        color:#fff;
+        font-size: 6vw;
+        font-weight: 100;
+        text-align: center;
+        transition: all 0.5s;
+     }
+     .button:hover{
+        transition: all 0.5s;
+        color:#8A0303;
+        transform: scale(1.1);
+     }
+     .blood{
+        transition: all 0.5s;
+     }
+     .blood:hover{
+        transition: all 0.5s;
+        color:#8A0303;
+     }
+    </style>
+</head>
+<body>
+    <h1 class="title"><span class="blood">When</span> <span class="blood">Will</span> <span class="blood">I</span> <span class="blood">Die</span></h1>
+    <p class="button" onclick="navigate()">Become foolish</p>
+
+    <script>
+    function navigate() {
+        window.location.href = "description.html";
+    }
+    </script>
+</body>
+</html>
