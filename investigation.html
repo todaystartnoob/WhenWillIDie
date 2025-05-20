@@ -18,11 +18,9 @@
       margin: 0;
       padding: 0;
     }
-
     body > * {
       user-select: none;
     }
-
     .title {
       color: #fff;
       font-size: 7vw;
@@ -31,35 +29,28 @@
       margin-top: 5vh;
       line-height: 1;
     }
-
-
     .qa-form {
       text-align: center;
       margin-top: 30vh;
     }
-
     .answer-input {
-  font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
-  padding: 1rem;
-  font-size: 2rem;
-  width: 50vw;
-  background-color: transparent;
-  border: none;
-  color: white;
-  border-radius: 0;
-  outline: none;
-  text-align: center;
-  transition: border-color 0.3s;
-}
-
-.answer-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-  font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
-  font-size: 1.8rem;
-  text-align: center;
-}
-
-
+      font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
+      padding: 1rem;
+      font-size: 2rem;
+      width: 50vw;
+      background-color: transparent;
+      border: none;
+      color: white;
+      outline: none;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    .answer-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+      font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
+      font-size: 1.8rem;
+      text-align: center;
+    }
     .submit-button {
       margin-top: 5vh;
       padding: 0.5rem 2rem;
@@ -70,40 +61,37 @@
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.5s;
+      background: none;
     }
-
     .submit-button:hover {
-        transition: all 0.5s;
       transform: scale(1.1);
-  color: #8a0303;
+      color: #8a0303;
     }
     .warning-message {
-  color: #8a0303;
-  font-size: 2rem;
-  margin-top: 1.5vh;
-  font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 1s ease;
-  pointer-events: none;
-}
-.progress-indicator {
-  position: fixed;
-  bottom: 2vh;
-  right: 3vw;
-  color: rgba(255, 255, 255, 0.6);
-  font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  user-select: none;
-  transition: all 0.5s;
-}
-.progress-indicator:hover{
-    transition: all 0.5s;
+      color: #8a0303;
+      font-size: 2rem;
+      margin-top: 1.5vh;
+      font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+    .progress-indicator {
+      position: fixed;
+      bottom: 2vh;
+      right: 3vw;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: "East Sea Dokdo", "Noto Sans KR", sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      user-select: none;
+      transition: all 0.5s;
+    }
+    .progress-indicator:hover {
       transform: scale(1.1);
-  color: #8a0303;
-}
-
+      color: #8a0303;
+    }
   </style>
 </head>
 <body>
@@ -118,14 +106,12 @@
       placeholder="신중히 선택하시길 바랍니다......"
     />
     <div>
-      <p type="submit" class="submit-button" onclick="handleSubmit()">
-      Become foolish
-      </p>
+      <button type="submit" class="submit-button">Become foolish</button>
     </div>
   </form>
+
   <div id="warning-message" class="warning-message"></div>
   <div id="progress-indicator" class="progress-indicator">foolishness : 1 / 30</div>
-
 
   <script>
     const questions = [
@@ -163,60 +149,55 @@
 
     const answers = [];
     let currentQuestion = 0;
+
     function handleSubmit(event) {
-  event.preventDefault();
+      event.preventDefault();
 
-  const input = document.getElementById("answer-input");
-  const answer = input.value.trim();
-  const warning = document.getElementById("warning-message");
+      const input = document.getElementById("answer-input");
+      const answer = input.value.trim();
+      const warning = document.getElementById("warning-message");
 
-  if (answer === "") {
-    const messages = [
-      "침묵이 언제나 답이 되진 않습니다.",
-      "도망친 곳에 낙원은 존재할 수 없습니다.",
-      "책임회피라.. 비열한 짓이죠.",
-      "도망이라니.. 한심하군요."
-    ];
-    const random = messages[Math.floor(Math.random() * messages.length)];
-    warning.textContent = random;
-    warning.style.opacity = 1;
+      if (answer === "") {
+        const messages = [
+          "침묵이 언제나 답이 되진 않습니다.",
+          "도망친 곳에 낙원은 존재할 수 없습니다.",
+          "책임회피라.. 비열한 짓이죠.",
+          "도망이라니.. 한심하군요."
+        ];
+        const random = messages[Math.floor(Math.random() * messages.length)];
+        warning.textContent = random;
+        warning.style.opacity = 1;
+        setTimeout(() => { warning.style.opacity = 0; }, 3000);
+        return;
+      }
 
-    setTimeout(() => {
       warning.style.opacity = 0;
-    }, 3000);
-    return;
-  }
+      answers.push(answer);
+      input.value = "";
+      currentQuestion++;
 
-  warning.textContent = "";
-  warning.style.opacity = 0;
-
-  answers.push(answer);
-  input.value = "";
-  currentQuestion++;
-
-  if (currentQuestion < questions.length) {
-    document.getElementById("question-title").textContent = questions[currentQuestion];
-    document.getElementById("progress-indicator").textContent = `foolishness : ${currentQuestion + 1} / ${questions.length}`;
-  } else {
-    // 질문 완료 시 서버로 전송
-    fetch("https://whenwillyoudie.org/predict", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answers })
-    })
-      .then(res => res.json())
-      .then(data => {
-        // 결과를 세션에 저장 후 result.html로 이동
-        sessionStorage.setItem("deathResult", JSON.stringify(data));
-        window.location.href = "reslut.html";
-      })
-      .catch(err => {
-        console.error("서버 오류:", err);
-        alert("결과 분석 중 문제가 발생했습니다.");
-      });
-  }
-}
-
+      if (currentQuestion < questions.length) {
+        document.getElementById("question-title").textContent = questions[currentQuestion];
+        document.getElementById("progress-indicator").textContent =
+          `foolishness : ${currentQuestion + 1} / ${questions.length}`;
+      } else {
+        // 질문 완료 시 서버로 전송 (HTTPS 도메인 사용)
+        fetch("https://whenwillyoudie.org/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ answers })
+        })
+        .then(res => res.json())
+        .then(data => {
+          sessionStorage.setItem("deathResult", JSON.stringify(data));
+          window.location.href = "result.html";
+        })
+        .catch(err => {
+          console.error("서버 오류:", err);
+          alert("결과 분석 중 문제가 발생했습니다.");
+        });
+      }
+    }
   </script>
 </body>
-</html
+</html>
